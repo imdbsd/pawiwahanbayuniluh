@@ -1,0 +1,53 @@
+@media only screen and (max-width: 991px) {
+    .upacara__bouquet img{
+        margin-top: 25px;
+    }
+}
+
+@media only screen and (max-width: 784px) {
+    .navbar__menu-wrapper li{
+        display: none;
+    }
+    .navbar__menu-wrapper .navbar__main-title{
+        display: inline-block;
+    }
+}
+
+@media only screen and (max-width: 768px) {
+    .slider__content-image{
+        background-attachment: scroll;
+    }
+
+    .slider__main-title{
+        font-size: 55px;
+    }
+    .greeting__note-title p:nth-child(1),
+    .greeting__note-title p:nth-child(2),
+    .greeting__main-wrapper .greeting__date{
+        font-size: 24px;
+    }
+    .greeting__main-wrapper p.greetin__address{
+        font-size: 12px;
+    }
+    .greeting__btn-wrapper .btn__btn-small{
+        font-size: 12px;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .mepandes__person-image{
+        height: 125px;
+        width: 125px;
+    }
+}
+@media only screen and (max-width: 375px) {
+    .greeting__main-title{
+        font-size: 36px;
+    }
+}
+
+@media only screen and (max-width: 320px) {
+    .greeting__main-wrapper .greeting__date{
+        font-size: 24px;
+    }
+}

@@ -1,0 +1,381 @@
+@font-face {
+    font-family: AutumnIn;
+    src: url(../fonts/autumn-in-november.regular.ttf);
+}
+@font-face {
+    font-family: BackToBlack;
+    src: url(../fonts/back-to-black-demo.regular.ttf);
+}
+
+@font-face {
+    font-family: Gothic;
+    src: url(../fonts/GOTHIC.TTF);
+}
+
+@font-face {
+    font-family: GothicBold;
+    src: url(../fonts/GOTHICB.TTF);
+}
+
+body{
+    background-color: #f7f4e1;
+}
+.slider__main-title{
+    font-family: BackToBlack;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 100;
+    color: #e5e5e5;
+    font-style: italic;    
+    font-size: 70px;
+    margin: 0;
+}
+.slider__main-wrapper{
+    position: relative;
+    /* overflow: hidden; */
+}
+.slider__content-image{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100%;
+    width: 100%;
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+.navbar.navbar__stick-top{
+    position: fixed;
+    top: 0;
+    height: 50px;
+    z-index: 100;
+    box-shadow: 0 3px 16px 0px #2d1010;
+}
+.navbar__navbar-maron{
+    background-color: #490303;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    margin: 0;
+}
+
+.navbar__menu-wrapper{
+    color: #ffffff;
+    list-style: none;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar__menu-wrapper li{
+    display: inline-block;
+    margin: 10px 15px;
+    font-size: 18px;
+    font-family: Gothic;
+}
+
+.navbar__menu-wrapper li.navbar__main-title{
+    margin: 10px 0;    
+}
+
+.navbar__menu-wrapper li a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.navbar__menu-wrapper li a:hover{
+    color: #ff6d6d;
+    transition: all .5s ease;
+}
+
+.slick-list.draggable,
+.slick-track{
+    height: 100%;
+    width: 100%;
+}
+
+.navbar__menu-wrapper .navbar__main-title{
+    font-family: AutumnIn;
+}
+
+.mepandes__main-title{
+    font-family: AutumnIn;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 44px;
+    color: #330f0f;
+}
+
+/* .mepandes__person-wrapper{
+    
+} */
+
+.mepandes__person-image{
+    height: 150px;
+    width: 150px;
+    border-radius: 500px;
+    background-color: #ffffff;
+    margin: auto;
+}
+
+.mepandes__person-name{
+    color: #ffffff;
+    font-family: Gothic;
+    margin: 0;
+}
+
+.upacara__upacara-wrapper{
+    padding: 10px;
+    padding-bottom: 20px;
+    text-align: center;
+    color: #330F0F;
+    margin: 20px 0;
+}
+
+.upacara__upacara-wrapper h2{
+    font-family: Gothic;
+    font-weight: bold;    
+}
+
+.upacara__upacara-name{
+    font-family: AutumnIn;    
+    font-size: 25px;
+}
+
+.upacara__upacara-date{
+    font-size: 25px;
+    font-weight: bold;
+    border-top: 2px solid #630000;
+    border-bottom: 2px solid #630000;
+    display: inline-block;
+}
+
+.upacara__upacara-time{
+    font-size: 16px;
+    margin-bottom: 20px;
+}
+
+.upacara__bouquet{
+    text-align: center;
+}
+
+.upacara__bouquet img{
+    margin-top: 100px;
+}
+
+.upacara__upacara-wrapper .btn__btn-small{
+    margin-top: 20px;
+}
+
+.btn__btn-small{
+    padding: 10px;
+    font-family: Gothic;
+}
+
+.btn__btn-maron{
+    background-color: #330f0f;
+    border: 2px solid #330f0f;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+.btn__btn-maron:hover,
+.btn__btn-maron:focus{
+    color: #330f0f;
+    background-color: #f7f4e1;
+    text-decoration: none;
+    transition: .25s all ease;
+}
+
+.footer__main-wrapper{
+    background-color: #490303;
+    text-align: center;
+    padding: 10px;
+}
+
+.footer__menu-wrapper{
+    list-style: none;
+    color: #ffffff;
+    margin: 0;
+}
+
+.footer__menu-wrapper li{
+    display: inline-block;
+    padding: 10px;    
+}
+
+.footer__menu-wrapper li a{
+    color: #ffffff;
+}
+
+.greeting__main-title{
+    font-family: AutumnIn;
+    font-size: 44px;
+    color: #330f0f;
+    margin-bottom: 30px;
+}
+
+.greeting__main-wrapper{
+    padding: 25px 0;
+}
+
+.greeting__main-wrapper p{
+    font-family: Gothic;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.greeting__closing-wrapper{
+    display: block;
+    text-align: right;
+}
+
+.greeting__closing-wrapper p:nth-child(1){
+    text-align: left;
+    margin-bottom: 28px;
+}
+
+.greeting__closing-wrapper .greeting__signature{
+    font-family: AutumnIn;
+    font-size: 28px;
+    color: #330f0f;
+}
+
+.greeting__person-image{
+    width: 100%;
+    height: auto;
+}
+
+.greeting__note-title{
+    margin: 10px 0;
+    display: block;    
+    overflow: hidden;
+    width: 100%;
+}
+
+.greeting__main-wrapper .greeting__date{
+    font-size: 36px;
+    font-weight: bold;
+    border-top: 2px solid #330f0f;
+    border-bottom: 2px solid #330f0f;
+    text-align: center;    
+    font-family: GothicBold;
+    color: #330F0F;
+}
+
+.greetin__address{
+    color: #330F0F;
+    font-weight: bold;
+    font-family: Gothic;
+}
+
+.greeting__note-title p:nth-child(1){
+    font-family: BackToBlack;
+    font-size: 36px;
+    float: left;
+    color: #330F0F;
+}
+
+.greeting__note-title p:nth-child(2){
+    float: right;
+    font-family: GothicBold;
+    font-size: 36px;
+    font-weight: bold;
+    color: #330F0F;
+}
+
+.greeting__btn-wrapper{
+    /* overflow: hidden; */
+    width: 100%;
+    position: relative;
+    text-align: right;
+    margin: 15px 0;
+}
+
+/* .greeting__btn-wrapper img{
+    position: absolute;
+    top: -50px;
+    left: -35px;
+} */
+
+.greeting__btn-wrapper .btn__btn-small{
+    font-size: 18px
+}
+
+.navbar-toggle{
+    position: absolute;
+    padding: 7px 10px;
+    right: 0;
+    top: 0;
+}
+
+.navbar-toggle .icon-bar{
+    border: 1px solid #fff;
+}
+
+.navbar__mobile-menu-wrapper{
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: #490303;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.navbar__mobile-menu-wrapper.open{
+    right: 0;
+    transition: 1s right ease;
+}
+
+.navbar__mobile-menu-wrapper.open.unopen{
+    right: 100%;
+    transition: 1s right ease;
+}
+
+.navbar__mobile-menu{
+    padding: 0;
+    position: relative;
+    bottom: -50px;
+    opacity: 0;
+}
+
+.navbar__mobile-menu.open{
+    opacity: 1;
+    bottom: 0;
+    transition: all 0.5s ease;
+    transition-delay: .5s;
+}
+
+.navbar__mobile-menu.open.unopen{
+    bottom: 50px;
+    opacity: 0;
+    transition: all .5s ease;
+}
+
+.navbar__mobile-menu li{
+    list-style: none;    
+    padding: 10px;
+    text-align: center;
+}
+
+.navbar__mobile-menu li a{
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.navbar__close-toggler{
+    color: #ffffff;
+    position: absolute;
+    font-size: 25px;
+    top: 10px;
+    right: 10px;
+}
