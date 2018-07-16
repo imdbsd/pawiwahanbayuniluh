@@ -22,7 +22,7 @@ $(document).ready(function(){
     });
     
     $(window).on("scroll", function(){
-        var scrollPosition =  $(window).scrollTop();
+        var scrollPosition =  $(window).scrollTop();        
         if(scrollPosition >= windowHeight){
             $("#main-navbar").addClass("navbar__stick-top");
         }

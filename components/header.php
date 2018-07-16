@@ -1,5 +1,4 @@
-<?php echo "<pre>";print_r($_SERVER);echo "</pre>"; ?>
-<?php include "../env.php"; ?>
+<?php include  __DIR__."/../env.php"; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
