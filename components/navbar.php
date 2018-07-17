@@ -10,7 +10,7 @@
             <li>
                 <a href="#">Acara</a></li>
             <li class="navbar__main-title">
-                <a href="#">Bayu & Ni Luh</a>
+                <a href="<?php echo $env[$envStatus]["site_url"]; ?>">Bayu & Ni Luh</a>
             </li>
             <li>
                 <a href="#">Our Story</a></li>

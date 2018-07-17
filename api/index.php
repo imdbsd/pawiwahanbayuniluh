@@ -1,5 +1,6 @@
 <?php
 header('Content-Type: application/json');
+ini_set('display_errors', 0);
 $imagesJson = file_get_contents("images.json");
 $imagesData = json_decode($imagesJson);
 $siteUrl = "";
@@ -15,17 +16,19 @@ if(!isset($_GET["page"]) && $_GET["page"] == "" && $_GET["page"] < 1){
     exit;
 }
 
-if($isHttps){
-    $siteUrl .= "https://";
-}
-else{
-    $siteUrl .= "http://";
-}
+// if($isHttps){
+//     $siteUrl .= "https://";
+// }
+// else{
+//     $siteUrl .= "http://";
+// }
 
-$siteUrl .= $_SERVER['SERVER_NAME']."/assets/images/prewed/";
+// $siteUrl .= $_SERVER['SERVER_NAME']."/assets/images/prewed/";
+
+$siteUrl = "http://localhost/pawiwahanbayuniluh/assets/images/prewed/";
 
 $page = $_GET["page"] - 1;
-$fetch = 5;
+$fetch = 3;
 $images = array();
 
 for($index = $page * $fetch; $index < count($imagesData->images); $index++){        
@@ -41,12 +44,12 @@ $next = isset($imagesData->images[($page + 1) * $fetch])? true : false;
 
 $response = (Object) array(
     "next" => $next,
-    "images" => $images,
-    "site_url" => $siteUrl
+    "site_url" => $siteUrl,
+    "images" => $images  
 );
 
 if($next){
-    $response->next_index = $page + 1;
+    $response->next_index = $page + 1 + 1;
 }
 
 echo json_encode($response);

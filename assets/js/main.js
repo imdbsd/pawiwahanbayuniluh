@@ -20,6 +20,56 @@ $(document).ready(function(){
             })        
         }, 150);
     });
+
+    var doLoad = false;
+    var page = 1;
+    if($(".loader__main-wrapper").length > 0){
+        loadGallery();
+    }
+
+    function loadGallery(){
+        if(!doLoad && page != -1){
+            requestGallery(function(result){
+                // var templateWrapper = '';            
+                for(var index = 0; index < result.images.length; index++){
+                    var imageUrl = result.site_url + result.images[index];
+                    var newImage = new Image();
+                    newImage.src = imageUrl;
+                    newImage.onload = function(){
+                        console.log(this.src + " is Loaded");
+                        var templateImage = '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="gallery__image-wrapper"><div class="gallery__image" style="background-image: url(' + this.src +')"></div></div></div>';
+                        setTimeout(function(){
+                            $("#gallery__grid-wrapper").append(templateImage);
+                        }, 1500);
+                    }
+                    // var templateImage = '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="gallery__image-wrapper"><div class="gallery__image" style="background-image: url(' + imageUrl +')"></div></div></div>';
+                    // templateWrapper += templateImage;
+                    // if(index == result.images.length - 1){
+                    //     $("#gallery__grid-wrapper").append(templateWrapper);
+                    // }
+                }                
+            })
+        }
+    }
+
+    function requestGallery(callback){
+        $.ajax({
+            type: "GET",            
+            url: "http://localhost/pawiwahanbayuniluh/api/?page=" + page,
+            success: function(result){
+                if(result.next){
+                    page = result.next_index;
+                }
+                else{
+                    page = -1;
+                }
+                callback(result);                
+            },
+            error: function(){
+
+            }
+        })
+    }
     
     $(window).on("scroll", function(){
         var scrollPosition =  $(window).scrollTop();        
@@ -28,6 +78,9 @@ $(document).ready(function(){
         }
         else{
             $("#main-navbar").removeClass("navbar__stick-top");
+        }
+        if($(".loader__main-wrapper").length > 0){
+            // alert("ada gallery");
         }
     })
 
@@ -50,5 +103,5 @@ $(document).ready(function(){
             $("#mobile-menu").removeClass("open unopen");
             $(".navbar__mobile-menu").removeClass("open unopen");
         }, 1000)
-    })
+    })    
 })
