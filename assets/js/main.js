@@ -35,14 +35,16 @@ $(document).ready(function(){
                     var imageUrl = result.site_url + result.images[index];
                     var newImage = new Image();
                     newImage.src = imageUrl;
-                    newImage.onload = function(){
-                        console.log(this.src + " is Loaded");
-                        var templateImage = '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="gallery__image-wrapper"><div class="gallery__image" style="background-image: url(' + this.src +')"></div></div></div>';
-                        setTimeout(function(){
-                            $("#gallery__grid-wrapper").append(templateImage);
-                        }, 1500);
+                    newImage.id = "image-" + index;
+                    newImage.name = index;
+                    newImage.onload = function(){                        
+                        var templateImage = '<div class="gallery__image-wrapper"><div id="' + this.id +'" class="gallery__image" style="background-image: url(' + this.src +')"></div></div>';         
+                        $("#gallery-grid-" + (this.name % 3 + 1)).append(templateImage);                             
+                        $("#" + this.id).parent().css("height", this.naturalHeight / 2);
+                        console.log(this)                        
+                        $("#" + this.id).addClass("loaded");
                     }
-                    // var templateImage = '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="gallery__image-wrapper"><div class="gallery__image" style="background-image: url(' + imageUrl +')"></div></div></div>';
+                    // var templateImage = '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="gallery__image-wrapper"><div id="image-' + index + '" class="gallery__image" style="background-image: url(' + imageUrl +')"></div></div></div>';
                     // templateWrapper += templateImage;
                     // if(index == result.images.length - 1){
                     //     $("#gallery__grid-wrapper").append(templateWrapper);

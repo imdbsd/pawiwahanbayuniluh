@@ -28,7 +28,7 @@ if(!isset($_GET["page"]) && $_GET["page"] == "" && $_GET["page"] < 1){
 $siteUrl = "http://localhost/pawiwahanbayuniluh/assets/images/prewed/";
 
 $page = $_GET["page"] - 1;
-$fetch = 3;
+$fetch = 4;
 $images = array();
 
 for($index = $page * $fetch; $index < count($imagesData->images); $index++){        
