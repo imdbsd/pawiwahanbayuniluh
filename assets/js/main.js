@@ -23,32 +23,49 @@ $(document).ready(function(){
 
     var doLoad = false;
     var page = 1;
-    if($(".loader__main-wrapper").length > 0){
+    if($("#gallery__grid-wrapper").length > 0){
+        var $grid = $('#gallery__grid-wrapper').isotope({            
+            itemSelector: '.grid-item',
+            layoutMode: 'masonry'
+          });
+          var imageGallery = [
+            {
+                "url": "http://localhost/pawiwahanbayuniluh/assets/images/prewed/WP1_7972.jpg",
+                "size": ["1","2"]
+            }
+          ];
+          var galleryIndex = 0;
         loadGallery();
     }
 
-    function loadGallery(){
+    function loadGallery(){               
         if(!doLoad && page != -1){
+            doLoad = true;
+            $("#gallery-load").css("display","none");                            
+            $("#loading-bar").css("display", "inline-block");
             requestGallery(function(result){
-                // var templateWrapper = '';            
+                var templateWrapper = '';            
                 for(var index = 0; index < result.images.length; index++){
-                    var imageUrl = result.site_url + result.images[index];
-                    var newImage = new Image();
-                    newImage.src = imageUrl;
-                    newImage.id = "image-" + index;
-                    newImage.name = index;
-                    newImage.onload = function(){                        
-                        var templateImage = '<div class="gallery__image-wrapper"><div id="' + this.id +'" class="gallery__image" style="background-image: url(' + this.src +')"></div></div>';         
-                        $("#gallery-grid-" + (this.name % 3 + 1)).append(templateImage);                             
-                        $("#" + this.id).parent().css("height", this.naturalHeight / 2);
-                        console.log(this)                        
-                        $("#" + this.id).addClass("loaded");
+                    var imageUrl = result.site_url + result.images[index].name;                   
+                    var size =  result.images[index].size.split("x");
+                    var templateImage = '<div class="col-lg-' + parseInt(size[0]) * 4 + ' col-md-' + parseInt(size[0]) * 4 + ' col-sm-6 col-xs-12 grid-item" data-gallery="' + imageGallery.length + '"><div class="gallery__image-wrapper" style="height: ' + parseInt(size[1]) * 250 + 'px;"><div id="image-" class="gallery__image loaded" style="background-image: url(' + imageUrl + ')"></div></div></div>';
+                    templateWrapper += templateImage;
+                    imageGallery.push(
+                        {
+                            "url": imageUrl,
+                            "size": size
+                        }
+                    )
+                    if(index == result.images.length - 1){                        
+                        var $items = $(templateWrapper);
+                        $grid.append( $items )                        
+                        .isotope( 'appended', $items );
+                        doLoad = false;
+                        $("#loading-bar").css("display", "none");                        
+                        if(page != -1){
+                            $("#gallery-load").css("display","inline-block");                            
+                        }
                     }
-                    // var templateImage = '<div class="col-lg-4 col-md-4 col-sm-6 col-xs-12"><div class="gallery__image-wrapper"><div id="image-' + index + '" class="gallery__image" style="background-image: url(' + imageUrl +')"></div></div></div>';
-                    // templateWrapper += templateImage;
-                    // if(index == result.images.length - 1){
-                    //     $("#gallery__grid-wrapper").append(templateWrapper);
-                    // }
                 }                
             })
         }
@@ -71,6 +88,74 @@ $(document).ready(function(){
 
             }
         })
+    }
+
+    $("#gallery-load").click(function(e){
+        loadGallery();
+    })  
+
+    $(document).on("click", ".grid-item", function(e){
+        $("#lightbox-modal").modal();
+        var selectedImageIndex = parseInt($(this).data("gallery"));
+        galleryIndex = selectedImageIndex;
+        var image = new Image();
+        image.src = imageGallery[selectedImageIndex].url;
+        $("#lightbox-image").attr("src", image.src);        
+        if(image.naturalHeight > image.naturalWidth){            
+            $("#lightbox-image").addClass("potrait");
+            $("#lightbox-image").removeClass("landscape");
+            var browserWidth = $(window).innerWidth() - 200;            
+            $("#lightbox-image").css("height", browserWidth);                                    
+        }
+        else{            
+            $("#lightbox-image").addClass("landscape");
+            $("#lightbox-image").removeClass("potrait");      
+            $("#lightbox-image").css("height", "");      
+            $(".lightbox__text").css("padding-right", 0);     
+            // var navPosition = $("#lightbox-image").css("margin-left").split("px")[0] - 30;
+            // $(".lightbox__nav.left").css("left",navPosition + "px");
+            // $(".lightbox__nav.right").css("right",navPosition + "px");      
+        }
+        changeActiveLightbox();
+    })
+
+    $(".lightbox__nav.left").click(function(e){
+        changeImage(-1);
+    })
+
+    $(".lightbox__nav.right").click(function(e){
+        changeImage(1);
+    })
+
+    function changeImage(action){
+        galleryIndex += action;
+        if(galleryIndex < 0){
+            galleryIndex = imageGallery.length - 1;
+        }
+        else if(galleryIndex >= imageGallery.length){
+            galleryIndex = 0;
+        }
+        var newImage = new Image();
+        newImage.src = imageGallery[galleryIndex].url;
+        $("#lightbox-image").attr("src", newImage.src);    
+        if(newImage.naturalHeight > newImage.naturalWidth){            
+            $("#lightbox-image").addClass("potrait");
+            $("#lightbox-image").removeClass("landscape");
+            var browserWidth = $(window).innerWidth() - 200;                        
+            $("#lightbox-image").css("height", browserWidth);                                    
+        }
+        else{            
+            $("#lightbox-image").addClass("landscape");
+            $("#lightbox-image").removeClass("potrait");      
+            $("#lightbox-image").css("height", "");                       
+            $(".lightbox__text").css("padding-right", 0);
+        }
+        changeActiveLightbox();
+    }
+
+    function changeActiveLightbox(){
+        $("#lightbox-current").html(galleryIndex + 1);
+        $("#lightbox-all").html(imageGallery.length);
     }
     
     $(window).on("scroll", function(){
