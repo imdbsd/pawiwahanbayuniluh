@@ -88,7 +88,7 @@ include "components/header.php";
             </div>
         </div>
     </section>
-    <section class="container" id="upcara">
+    <section class="container" id="upacara">
         <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
                 <div class="upacara__upacara-wrapper">
@@ -123,6 +123,21 @@ include "components/header.php";
         allowFullScreen
     >
     </iframe>
+    <section class="container" id="snapshot">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="snapshot__main-wrapper">
+                    <div class="snaphost__image" style="background-image: url(http://localhost/pawiwahanbayuniluh/assets/images/prewed/WP1_7972.jpg)">
+                        Acara
+                    </div>                    
+                </div>
+            </div>
+            <div class="col-lg-4">Mepandes</div>
+            <div class="col-lg-12">Keluarga</div>
+            <div class="col-lg-4">Our Story</div>
+            <div class="col-lg-8">Gallery</div>
+        </div>
+    </section>
     <section class="footer__main-wrapper">
         <div class="container">
             <div class="row">

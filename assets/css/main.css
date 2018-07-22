@@ -27,7 +27,7 @@ body{
 }
 
 .title-margin{
-    margin: 60px auto 30px;
+    margin: 30px auto 30px;
 }
 
 .slider__main-title{
@@ -52,6 +52,9 @@ body{
     background-attachment: fixed;
     height: 100%;
     width: 100%;
+}
+.slider__content-image.half{
+    background-position: top;
 }
 
 .navbar{
@@ -408,6 +411,7 @@ body{
 
 .loader__main-wrapper{
     text-align: center;
+    margin: 25px 0;
 }
 
 .gallery__image-wrapper{
@@ -500,19 +504,27 @@ body{
     color: #eee;
 }
 
-#lightbox-image.potrait ~ .lightbox__nav.left{
+/* #lightbox-image.potrait ~ .lightbox__nav.left{
     left: 54.9063px;
 }
 
 #lightbox-image.potrait ~ .lightbox__nav.right{
     right: 54.9063px;
-}
+} */
 
-#lightbox-image.landscape ~ .lightbox__nav.left{
+/* #lightbox-image.landscape ~ .lightbox__nav.left{
     left: -30px;
 }
 
 #lightbox-image.landscape ~ .lightbox__nav.right{
+    right: -30px;
+} */
+
+#lightbox-image ~ .lightbox__nav.left{
+    left: -30px;
+}
+
+#lightbox-image ~ .lightbox__nav.right{
     right: -30px;
 }
 #lightbox-modal .modal-footer{
@@ -522,6 +534,7 @@ body{
 
 .lightbox__text{
     color: #EEE;
+    position: absolute;
 }
 
 .lightbox__close{
@@ -535,4 +548,20 @@ body{
     padding-top: 5px;
     border: 2px solid #e9e9e9;
     cursor: pointer;
+    position: absolute;
+    z-index: 100;
+    top: -10px;
+    right: -10px;
+}
+
+.snapshot__main-wrapper{
+    height: 250px;
+    overflow: hidden;
+}
+
+.snaphost__image{
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
 }

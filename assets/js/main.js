@@ -4,7 +4,12 @@ $(document).ready(function(){
     
     // resizing slider image
     $.map($(".slider__content-image"), function(element){
-        $(element).css("height", windowHeight + 50 + "px");
+        if($(".slider__content-image.half").length > 0){
+            $(element).css("height", windowHeight * 3/4  + 50 + "px");
+        }           
+        else{
+            $(element).css("height", windowHeight + 50 + "px");
+        }        
         $(element).css("width", windowWidth + "px");
     })        
 
@@ -94,8 +99,12 @@ $(document).ready(function(){
         loadGallery();
     })  
 
-    $(document).on("click", ".grid-item", function(e){
-        $("#lightbox-modal").modal();
+    $(document).on("click", ".grid-item", function(e){        
+        $("#spinner").css("display","block");
+        $(".modal-content").css("display","none");
+        $("#lightbox-modal").modal({
+            "backdrop": "static"
+        });
         var selectedImageIndex = parseInt($(this).data("gallery"));
         galleryIndex = selectedImageIndex;
         var image = new Image();
@@ -104,18 +113,30 @@ $(document).ready(function(){
         if(image.naturalHeight > image.naturalWidth){            
             $("#lightbox-image").addClass("potrait");
             $("#lightbox-image").removeClass("landscape");
-            var browserWidth = $(window).innerWidth() - 200;            
-            $("#lightbox-image").css("height", browserWidth);                                    
+            if($(window).innerWidth() <= 900){
+                var browserWidth = $(window).innerWidth();            
+                $("#lightbox-image").css("height", browserWidth);                
+            }
+            else{
+                var browserHeight = $(window).innerHeight() - 100;            
+                $("#lightbox-image").css("height", browserHeight);                                                
+            }                        
         }
         else{            
             $("#lightbox-image").addClass("landscape");
             $("#lightbox-image").removeClass("potrait");      
             $("#lightbox-image").css("height", "");      
-            $(".lightbox__text").css("padding-right", 0);     
-            // var navPosition = $("#lightbox-image").css("margin-left").split("px")[0] - 30;
-            // $(".lightbox__nav.left").css("left",navPosition + "px");
-            // $(".lightbox__nav.right").css("right",navPosition + "px");      
+            $(".lightbox__text").css("padding-right", 0);                     
         }
+        setTimeout(function(){
+            $(".modal-content").css("display","block");
+            $("#spinner").css("display","none");                
+            var margin = $("#lightbox-image").css("margin-right").split("px")[0];
+            $(".lightbox__text").css("right", margin + "px");
+            $(".lightbox__close").css("right", margin - 10 + "px");
+            $(".lightbox__nav.left").css("left", margin + "px");
+            $(".lightbox__nav.right").css("right", margin + "px");
+        }, 1000)            
         changeActiveLightbox();
     })
 
@@ -141,15 +162,25 @@ $(document).ready(function(){
         if(newImage.naturalHeight > newImage.naturalWidth){            
             $("#lightbox-image").addClass("potrait");
             $("#lightbox-image").removeClass("landscape");
-            var browserWidth = $(window).innerWidth() - 200;                        
-            $("#lightbox-image").css("height", browserWidth);                                    
+            if($(window).innerWidth() <= 900){
+                var browserWidth = $(window).innerWidth();            
+                $("#lightbox-image").css("height", browserWidth);                
+            }
+            else{
+                var browserHeight = $(window).innerHeight() - 100;            
+                $("#lightbox-image").css("height", browserHeight);                                                
+            }            
         }
         else{            
             $("#lightbox-image").addClass("landscape");
             $("#lightbox-image").removeClass("potrait");      
-            $("#lightbox-image").css("height", "");                       
-            $(".lightbox__text").css("padding-right", 0);
+            $("#lightbox-image").css("height", "");                                   
         }
+        var margin = $("#lightbox-image").css("margin-right").split("px")[0];
+        $(".lightbox__text").css("right", margin + "px");
+        $(".lightbox__close").css("right", margin - 10 + "px");
+        $(".lightbox__nav.left").css("left", margin + "px");
+        $(".lightbox__nav.right").css("right", margin + "px");
         changeActiveLightbox();
     }
 
@@ -160,7 +191,11 @@ $(document).ready(function(){
     
     $(window).on("scroll", function(){
         var scrollPosition =  $(window).scrollTop();        
-        if(scrollPosition >= windowHeight){
+        var height = windowHeight;
+        if($(".slider__content-image.half").length > 0){
+            height = height * 3/4;
+        }
+        if(scrollPosition >= height){
             $("#main-navbar").addClass("navbar__stick-top");
         }
         else{
