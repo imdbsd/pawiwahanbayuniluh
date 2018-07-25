@@ -224,6 +224,7 @@ body{
     background-color: #490303;
     text-align: center;
     padding: 10px;
+    margin-top: 20px;
 }
 
 .footer__menu-wrapper{
@@ -448,7 +449,8 @@ body{
     transition: all .25s ease;
 }
 
-#gallery__grid-wrapper div[class^= "col-"]{
+#gallery__grid-wrapper div[class^= "col-"],
+#snapshot div[class^= "col-"]{
     margin: 10px 0;    
 }
 
@@ -556,7 +558,8 @@ body{
 
 .snapshot__main-wrapper{
     height: 250px;
-    overflow: hidden;
+    overflow: hidden;    
+    position: relative;
 }
 
 .snaphost__image{
@@ -564,4 +567,49 @@ body{
     width: 100%;
     background-size: cover;
     background-position: center;
+    transition: all .25s ease;  
+}
+
+.snapshot__main-wrapper:hover .snaphost__image{
+    transform: scale(1.1,1.1);
+    transition: all .25s ease;
+}
+
+.snapshot__white-box{
+    border: 1px solid #eeeeee;        
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.snapshot__white-box p{
+    font-family: AutumnIn;
+    font-size: 24px;
+    color: #eee;
+}   
+
+@keyframes placeHolderShimmer{
+    0%{
+        background-position: -468px 0
+    }
+    100%{
+        background-position: 468px 0
+    }
+}
+
+.animated-background {
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-name: placeHolderShimmer;
+    animation-timing-function: linear;
+    background: #f6f7f8;
+    background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
+    background-size: 800px 104px;    
+    position: relative;
 }

@@ -53,7 +53,7 @@ $(document).ready(function(){
                 for(var index = 0; index < result.images.length; index++){
                     var imageUrl = result.site_url + result.images[index].name;                   
                     var size =  result.images[index].size.split("x");
-                    var templateImage = '<div class="col-lg-' + parseInt(size[0]) * 4 + ' col-md-' + parseInt(size[0]) * 4 + ' col-sm-6 col-xs-12 grid-item" data-gallery="' + imageGallery.length + '"><div class="gallery__image-wrapper" style="height: ' + parseInt(size[1]) * 250 + 'px;"><div id="image-" class="gallery__image loaded" style="background-image: url(' + imageUrl + ')"></div></div></div>';
+                    var templateImage = '<div class="col-lg-' + parseInt(size[0]) * 4 + ' col-md-' + parseInt(size[0]) * 4 + ' col-sm-6 col-xs-12 grid-item" data-gallery="' + imageGallery.length + '"><div class="animated-background"><div class="gallery__image-wrapper" style="height: ' + parseInt(size[1]) * 250 + 'px;"><div id="image-" class="gallery__image loaded" style="background-image: url(' + imageUrl + ')"></div></div></div></div>';
                     templateWrapper += templateImage;
                     imageGallery.push(
                         {
@@ -79,7 +79,8 @@ $(document).ready(function(){
     function requestGallery(callback){
         $.ajax({
             type: "GET",            
-            url: "http://localhost/pawiwahanbayuniluh/api/?page=" + page,
+            // url: "http://localhost:3000/api/getImages/" + page,
+            url: "https://pwhbn-api.herokuapp.com/api/getImages/" + page,
             success: function(result){
                 if(result.next){
                     page = result.next_index;

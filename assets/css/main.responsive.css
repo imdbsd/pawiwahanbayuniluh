@@ -39,7 +39,12 @@
         display: inline-block;
     }
 }
-
+@media only screen and (max-width: 768px) and (min-width: 500px) {
+    .greeting__note-title{
+        width: 60%;
+        margin: 10px auto;
+    }
+}
 @media only screen and (max-width: 768px) {
     .slider__content-image{
         background-attachment: scroll;
@@ -49,16 +54,46 @@
         font-size: 55px;
     }
     .greeting__note-title p:nth-child(1),
-    .greeting__note-title p:nth-child(2),
-    .greeting__main-wrapper .greeting__date{
-        font-size: 24px;
-    }
+    .greeting__note-title p:nth-child(2){
+        font-size: 28px;
+    }    
     .greeting__main-wrapper p.greetin__address{
         font-size: 12px;
+        margin-bottom: 25px;
+        margin-top: 10px;
     }
     .greeting__btn-wrapper .btn__btn-small{
         font-size: 12px;
     }
+
+    .greeting__note{
+        text-align: center;
+    }
+
+    .greeting__main-wrapper .greeting__date{
+        display: inline-block;        
+        font-size: 24px;
+    }
+
+    .greeting__btn-wrapper{
+        text-align: center;
+    }
+
+    .greeting__main-title{
+        text-align: center;
+    }
+
+    .greeting__person-image{
+        width: 60%;
+    }
+    .greeting__main-wrapper p{
+        font-size: 14px;
+    }
+    .greeting__main-title,
+    .mepandes__main-title{
+        font-size: 34px;
+    }
+    
 }
 
 @media only screen and (max-width: 425px) {
@@ -66,10 +101,8 @@
         height: 125px;
         width: 125px;
     }        
-}
-@media only screen and (max-width: 375px) {
-    .greeting__main-title{
-        font-size: 36px;
+    .greeting__person-image{
+        width: 80%;
     }
 }
 
