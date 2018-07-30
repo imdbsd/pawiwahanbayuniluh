@@ -41,7 +41,7 @@
 }
 @media only screen and (max-width: 768px) and (min-width: 500px) {
     .greeting__note-title{
-        width: 60%;
+        width: 50%;
         margin: 10px auto;
     }
 }
@@ -84,7 +84,7 @@
     }
 
     .greeting__person-image{
-        width: 60%;
+        width: 50%;
     }
     .greeting__main-wrapper p{
         font-size: 14px;
@@ -102,7 +102,11 @@
         width: 125px;
     }        
     .greeting__person-image{
-        width: 80%;
+        width: 65%;
+    }
+    .greeting__note-title{
+        width: 75%;
+        margin: auto;
     }
 }
 

@@ -256,7 +256,7 @@ body{
 .greeting__main-wrapper p{
     font-family: Gothic;
     font-size: 18px;
-    font-weight: 600;
+    font-weight: 600;    
 }
 
 .greeting__closing-wrapper{
@@ -276,15 +276,17 @@ body{
 }
 
 .greeting__person-image{
-    width: 100%;
+    width: 70%;
     height: auto;
 }
-
+.greeting__note{
+    text-align: center;
+}
 .greeting__note-title{
-    margin: 10px 0;
+    margin: 10px auto;
     display: block;    
     overflow: hidden;
-    width: 100%;
+    width: 80%;    
 }
 
 .greeting__main-wrapper .greeting__date{
@@ -301,6 +303,7 @@ body{
     color: #330F0F;
     font-weight: bold;
     font-family: Gothic;
+    text-align: left;
 }
 
 .greeting__note-title p:nth-child(1){
@@ -421,8 +424,15 @@ body{
     height: 250px;
     /* margin: 0 0 10px; */
     box-shadow: 0 0 18px 0px #999 inset;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-
+.gallery__image-wrapper img{
+    position: absolute;
+    width: 70px;
+    height: auto;
+}
 .gallery__image{
     background-position: center;
     background-size: cover;
@@ -612,4 +622,26 @@ body{
     background: linear-gradient(to right, #eeeeee 8%, #dddddd 18%, #eeeeee 33%);
     background-size: 800px 104px;    
     position: relative;
+}
+
+.slider__slider-rail .animated-background{
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+}
+
+.snapshot__main-wrapper .animated-background{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider__slider-rail .animated-background img,
+.snapshot__main-wrapper img{
+    position: absolute;
+    width: 100px;
+    height: auto;
+    z-index: -1;
 }
