@@ -17,6 +17,42 @@
     src: url(../fonts/GOTHICB.TTF);
 }
 
+@-webkit-keyframes jump {
+    0%{
+    -webkit-transform: translateY(0);
+    transform: translateY(0);
+    opacity: 0;
+    }
+    91%{
+    opacity: 1;
+    }
+    100%{
+    -webkit-transform: translateY(30px);
+    transform: translateY(30px);
+    opacity: 1;
+    }
+    100%{
+    opacity: 0;
+    }
+  }
+  
+  @keyframes jump {
+    0%{
+    transform: translateY(0);
+    opacity: 0;
+    }
+    91%{
+    opacity: 1;
+    }
+    100%{
+    transform: translateY(30px);
+    opacity: 1;
+    }
+    100%{
+    opacity: 0;
+    }
+}  
+
 body{
     background-color: #f7f4e1;
 }
@@ -41,6 +77,20 @@ body{
     font-size: 70px;
     margin: 0;
 }
+
+.slider__slide-down-wrapper{
+    position: absolute;
+    bottom: 100px;
+    width: 100%;
+    text-align: center;
+}
+
+.slider__slide-down-wrapper .slider__slide-down-arrow{
+    display: inline-block;
+    -webkit-animation: jump 0.75s ease 0s infinite normal;
+    animation: jump 0.75s ease 0s infinite normal;
+}
+
 .slider__main-wrapper{
     position: relative;
     /* overflow: hidden; */
@@ -147,7 +197,21 @@ body{
     width: 150px;
     border-radius: 500px;
     background-color: #ffffff;
-    margin: auto;
+    margin: auto;    
+    overflow: hidden;
+}
+
+.mepandes__person-image .image{
+    background-position: center;
+    background-size: cover;
+    height: 150px;
+    width: 150px;
+    transition: all .25s ease;
+}
+
+.mepandes__person-image:hover .image{
+    transform: scale(1.2, 1.2);
+    transition: all .25s ease;
 }
 
 .mepandes__person-name{
@@ -251,12 +315,12 @@ body{
 
 .greeting__main-wrapper{
     padding: 25px 0;
+    margin-top: 50px;
 }
 
 .greeting__main-wrapper p{
-    font-family: Gothic;
-    font-size: 18px;
-    font-weight: 600;    
+    font-family: GothicBold;
+    font-size: 18px;    
 }
 
 .greeting__closing-wrapper{
@@ -281,12 +345,12 @@ body{
 }
 .greeting__note{
     text-align: center;
+    height: 100%;
 }
 .greeting__note-title{
     margin: 10px auto;
-    display: block;    
-    overflow: hidden;
-    width: 80%;    
+    display: inline-block;    
+    overflow: hidden;    
 }
 
 .greeting__main-wrapper .greeting__date{
@@ -295,45 +359,42 @@ body{
     border-top: 2px solid #330f0f;
     border-bottom: 2px solid #330f0f;
     text-align: center;    
+    display: inline-block;
     font-family: GothicBold;
     color: #330F0F;
 }
 
-.greetin__address{
+.greeting__address{
     color: #330F0F;
     font-weight: bold;
     font-family: Gothic;
-    text-align: left;
+    text-align: center;
 }
 
 .greeting__note-title p:nth-child(1){
     font-family: BackToBlack;
-    font-size: 36px;
-    float: left;
+    font-size: 36px;    
     color: #330F0F;
+    display: inline;
+    margin: 10px 20px;
 }
 
-.greeting__note-title p:nth-child(2){
-    float: right;
+.greeting__note-title p:nth-child(2){    
     font-family: GothicBold;
     font-size: 36px;
     font-weight: bold;
     color: #330F0F;
+    display: inline;
+    margin: 10px 20px;
 }
 
 .greeting__btn-wrapper{
     /* overflow: hidden; */
     width: 100%;
     position: relative;
-    text-align: right;
+    text-align: center;
     margin: 15px 0;
 }
-
-/* .greeting__btn-wrapper img{
-    position: absolute;
-    top: -50px;
-    left: -35px;
-} */
 
 .greeting__btn-wrapper .btn__btn-small{
     font-size: 18px
@@ -406,11 +467,12 @@ body{
 }
 
 .navbar__close-toggler{
-    color: #ffffff;
+    color: #ffffff !important;
     position: absolute;
     font-size: 25px;
-    top: 10px;
-    right: 10px;
+    top: 30px;
+    right: 30px;
+    font-weight: 600;
 }
 
 .loader__main-wrapper{

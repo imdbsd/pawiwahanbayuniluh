@@ -27,7 +27,7 @@
         </button>
     </div>       
     <div class="navbar__mobile-menu-wrapper" id="mobile-menu">
-        <span class="navbar__close-toggler" id="menu-close">&#10006;</span>
+        <span class="navbar__close-toggler" id="menu-close">x</span>
         <ul class="navbar__mobile-menu">
             <li>
                 <a href="#">Keluarga</a></li>

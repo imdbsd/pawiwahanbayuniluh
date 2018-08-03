@@ -12,6 +12,12 @@ $(document).ready(function(){
         }        
         $(element).css("width", windowWidth + "px");
     })        
+    $(".slider__slide-down-arrow").click(function(){
+        console.log("masuk")
+        $('html, body').stop().animate({
+            scrollTop: windowHeight + 10
+        }, 800) 
+    })    
 
     var resize_timeout;
     $(window).on('resize', function(){
