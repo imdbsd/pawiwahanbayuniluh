@@ -707,3 +707,15 @@ body{
     height: auto;
     z-index: -1;
 }
+
+.copyright{
+    color: #ffffff;
+}
+
+.copyright a{
+    color: #ffffff;
+}
+
+.copyright span{
+    color: #da2020;
+}

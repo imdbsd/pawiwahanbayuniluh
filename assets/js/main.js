@@ -1,7 +1,7 @@
 $(document).ready(function(){
     var windowHeight = $(window).outerHeight();
     var windowWidth = $(window).outerWidth();
-    
+    var location = window.location.href;
     // resizing slider image
     $.map($(".slider__content-image"), function(element){
         if($(".slider__content-image.half").length > 0){
@@ -12,12 +12,64 @@ $(document).ready(function(){
         }        
         $(element).css("width", windowWidth + "px");
     })        
-    $(".slider__slide-down-arrow").click(function(){
-        console.log("masuk")
+    $(".slider__slide-down-arrow").click(function(){        
         $('html, body').stop().animate({
             scrollTop: windowHeight + 10
         }, 800) 
     })    
+
+    // reposition to target    
+    var target = location.split("#");
+    if(target.length > 1){
+        target = target[1];
+        if(target == "mepandes"){
+            var offset = 1648;            
+            scrollTo(offset);
+        }
+        else if(target == "acara"){
+            var offset = 2171;            
+            scrollTo(offset);            
+        }
+    }
+
+    function scrollTo(position){
+        $('html, body').stop().animate({
+            scrollTop: position
+        }, 800)
+    }
+
+    $(".mepandes-link").click(function(e){         
+        setTimeout(function(){
+            var currentLocation = window.location.href;                                  
+            if(currentLocation == "http://localhost/pawiwahanbayuniluh/" || currentLocation == "http://localhost/pawiwahanbayuniluh/#mepandes" || currentLocation == "http://localhost/pawiwahanbayuniluh/#"){              
+                var offset = $(".mepandes__main-wrapper").offset();
+                checkIsMobileMenuOpen();                
+                $('html, body').stop().animate({
+                    scrollTop: offset.top - 90
+                }, 800)
+            }  
+        },100)       
+    })
+
+    $(".acara-link").click(function(e){  
+        setTimeout(function(){
+            var currentLocation = window.location.href;                                                
+            if(currentLocation == "http://localhost/pawiwahanbayuniluh/" || currentLocation == "http://localhost/pawiwahanbayuniluh/#acara" || currentLocation == "http://localhost/pawiwahanbayuniluh/#"){              
+                var offset = $("#upacara").offset();
+                checkIsMobileMenuOpen();                
+                $('html, body').stop().animate({
+                    scrollTop: offset.top - 90
+                }, 800)
+            }     
+        }, 100)    
+    })
+
+    function checkIsMobileMenuOpen(){
+        var isOpen = $(".navbar__mobile-menu-wrapper.open").length;
+        if(isOpen == 1){
+            closeMobileMenu();
+        }
+    }
 
     var resize_timeout;
     $(window).on('resize', function(){
@@ -226,11 +278,14 @@ $(document).ready(function(){
     })
 
     $("#menu-close").click(function(e){
+        closeMobileMenu();
+    })    
+    function closeMobileMenu(){
         $("#mobile-menu").addClass("unopen");
         $(".navbar__mobile-menu").addClass("unopen");
         setTimeout(function(){
             $("#mobile-menu").removeClass("open unopen");
             $(".navbar__mobile-menu").removeClass("open unopen");
         }, 1000)
-    })    
+    }
 })
