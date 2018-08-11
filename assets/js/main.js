@@ -111,7 +111,7 @@ $(document).ready(function(){
                 for(var index = 0; index < result.images.length; index++){
                     var imageUrl = result.site_url + result.images[index].name;                   
                     var size =  result.images[index].size.split("x");
-                    var templateImage = '<div class="col-lg-' + parseInt(size[0]) * 4 + ' col-md-' + parseInt(size[0]) * 4 + ' col-sm-6 col-xs-12 grid-item" data-gallery="' + imageGallery.length + '"><div class="animated-background"><div class="gallery__image-wrapper" style="height: ' + parseInt(size[1]) * 250 + 'px;"><img src="http://localhost/pawiwahanbayuniluh/assets/images/picture.png" alt="image icon"/><div id="image-" class="gallery__image loaded" style="background-image: url(' + imageUrl + ')"></div></div></div></div>';
+                    var templateImage = '<div class="col-lg-' + parseInt(size[0]) * 4 + ' col-md-' + parseInt(size[0]) * 4 + ' col-sm-6 col-xs-12 grid-item" data-gallery="' + imageGallery.length + '"><div class="animated-background"><div class="gallery__image-wrapper" style="height: ' + parseInt(size[1]) * 250 + 'px;"><img class="loader" src="http://localhost/pawiwahanbayuniluh/assets/images/picture.png" alt="image icon"/><div id="image-" class="gallery__image loaded" style="background-image: url(' + imageUrl + ')"></div></div></div></div>';
                     templateWrapper += templateImage;
                     imageGallery.push(
                         {
