@@ -36,40 +36,7 @@ $(document).ready(function(){
         $('html, body').stop().animate({
             scrollTop: position
         }, 800)
-    }
-
-    $(".mepandes-link").click(function(e){         
-        setTimeout(function(){
-            var currentLocation = window.location.href;                                  
-            if(currentLocation == "http://localhost/pawiwahanbayuniluh/" || currentLocation == "http://localhost/pawiwahanbayuniluh/#mepandes" || currentLocation == "http://localhost/pawiwahanbayuniluh/#"){              
-                var offset = $(".mepandes__main-wrapper").offset();
-                checkIsMobileMenuOpen();                
-                $('html, body').stop().animate({
-                    scrollTop: offset.top - 90
-                }, 800)
-            }  
-        },100)       
-    })
-
-    $(".acara-link").click(function(e){  
-        setTimeout(function(){
-            var currentLocation = window.location.href;                                                
-            if(currentLocation == "http://localhost/pawiwahanbayuniluh/" || currentLocation == "http://localhost/pawiwahanbayuniluh/#acara" || currentLocation == "http://localhost/pawiwahanbayuniluh/#"){              
-                var offset = $("#upacara").offset();
-                checkIsMobileMenuOpen();                
-                $('html, body').stop().animate({
-                    scrollTop: offset.top - 90
-                }, 800)
-            }     
-        }, 100)    
-    })
-
-    function checkIsMobileMenuOpen(){
-        var isOpen = $(".navbar__mobile-menu-wrapper.open").length;
-        if(isOpen == 1){
-            closeMobileMenu();
-        }
-    }
+    }    
 
     var resize_timeout;
     $(window).on('resize', function(){
@@ -93,7 +60,7 @@ $(document).ready(function(){
           });
           var imageGallery = [
             {
-                "url": "http://localhost/pawiwahanbayuniluh/assets/images/prewed/WP1_7972.jpg",
+                "url": "https://pawiwahanbayuniluh.com/assets/images/prewed/WP1_7972.jpg",
                 "size": ["1","2"]
             }
           ];
@@ -111,7 +78,7 @@ $(document).ready(function(){
                 for(var index = 0; index < result.images.length; index++){
                     var imageUrl = result.site_url + result.images[index].name;                   
                     var size =  result.images[index].size.split("x");
-                    var templateImage = '<div class="col-lg-' + parseInt(size[0]) * 4 + ' col-md-' + parseInt(size[0]) * 4 + ' col-sm-6 col-xs-12 grid-item" data-gallery="' + imageGallery.length + '"><div class="animated-background"><div class="gallery__image-wrapper" style="height: ' + parseInt(size[1]) * 250 + 'px;"><img class="loader" src="http://localhost/pawiwahanbayuniluh/assets/images/picture.png" alt="image icon"/><div id="image-" class="gallery__image loaded" style="background-image: url(' + imageUrl + ')"></div></div></div></div>';
+                    var templateImage = '<div class="col-lg-' + parseInt(size[0]) * 4 + ' col-md-' + parseInt(size[0]) * 4 + ' col-sm-6 col-xs-12 grid-item" data-gallery="' + imageGallery.length + '"><div class="animated-background"><div class="gallery__image-wrapper" style="height: ' + parseInt(size[1]) * 250 + 'px;"><img class="loader" src="https://pawiwahanbayuniluh.com/assets/images/picture.png" alt="image icon"/><div id="image-" class="gallery__image loaded" style="background-image: url(' + imageUrl + ')"></div></div></div></div>';
                     templateWrapper += templateImage;
                     imageGallery.push(
                         {
