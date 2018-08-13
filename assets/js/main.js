@@ -104,8 +104,8 @@ $(document).ready(function(){
     function requestGallery(callback){
         $.ajax({
             type: "GET",            
-            // url: "http://localhost:3000/api/getImages/" + page,
-            url: "https://pwhbn-api.herokuapp.com/api/getImages/" + page,
+            url: "http://localhost:3000/api/getImages/" + page,
+            // url: "https://pwhbn-api.herokuapp.com/api/getImages/" + page,
             success: function(result){
                 if(result.next){
                     page = result.next_index;
@@ -160,8 +160,8 @@ $(document).ready(function(){
             var margin = $("#lightbox-image").css("margin-right").split("px")[0];
             $(".lightbox__text").css("right", margin + "px");
             $(".lightbox__close").css("right", margin - 10 + "px");
-            $(".lightbox__nav.left").css("left", margin + "px");
-            $(".lightbox__nav.right").css("right", margin + "px");
+            $(".lightbox__nav--left").css("left", margin + "px");
+            $(".lightbox__nav--right").css("right", margin + "px");
         }, 1000)            
         changeActiveLightbox();
     })

@@ -657,27 +657,12 @@ body{
     color: #eee;
 }
 
-/* #lightbox-image.potrait ~ .lightbox__nav.left{
-    left: 54.9063px;
-}
 
-#lightbox-image.potrait ~ .lightbox__nav.right{
-    right: 54.9063px;
-} */
-
-/* #lightbox-image.landscape ~ .lightbox__nav.left{
+#lightbox-image ~ .lightbox__nav.lightbox__nav--left{
     left: -30px;
 }
 
-#lightbox-image.landscape ~ .lightbox__nav.right{
-    right: -30px;
-} */
-
-#lightbox-image ~ .lightbox__nav.left{
-    left: -30px;
-}
-
-#lightbox-image ~ .lightbox__nav.right{
+#lightbox-image ~ .lightbox__nav.lightbox__nav--right{
     right: -30px;
 }
 #lightbox-modal .modal-footer{
