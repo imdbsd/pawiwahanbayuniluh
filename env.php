@@ -3,10 +3,10 @@
     $env = array(
         "site_name" => "Pawiwahan Bayu & Niluh",
         "development" => array(
-            "site_url" => "http://localhost/pawiwahanbayuniluh"
+            "site_url" => "https://imdbsd.github.io/pawiwahanbayuniluh"
         ),
         "production" => array(
-            "site_url" => "https://imdbsd.github.io/pawiwahanbayuniluh/"
+            "site_url" => "https://imdbsd.github.io/pawiwahanbayuniluh"
         )
     );    
 ?>
